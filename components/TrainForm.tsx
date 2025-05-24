@@ -13,14 +13,19 @@ export default function TrainFormModal({ initialData, onSubmit, onCancel }: Trai
   const [departure, setDeparture] = useState('');
   const [arrival, setArrival] = useState('');
 
-  useEffect(() => {
-    if (initialData) {
-      setFrom(initialData.from);
-      setTo(initialData.to);
-      setDeparture(initialData.departure.slice(0, 16));
-      setArrival(initialData.arrival.slice(0, 16));
-    }
-  }, [initialData]);
+useEffect(() => {
+  if (initialData) {
+    setFrom(initialData.from);
+    setTo(initialData.to);
+    setDeparture(initialData.departure?.slice(0, 16));
+    setArrival(initialData.arrival?.slice(0, 16));
+  } else {
+    setFrom('');
+    setTo('');
+    setDeparture('');
+    setArrival('');
+  }
+}, [initialData]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

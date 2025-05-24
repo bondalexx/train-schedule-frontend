@@ -26,9 +26,10 @@ export default function TrainsPageContent() {
   };
 
   const handleUpdate = async (train: any) => {
-    await updateTrain({ id: editing.id, ...train });
-    setEditing(null);
-    refetch();
+     await updateTrain({ id: editing.id, ...train });
+  setEditing(null);     
+  setShowForm(false);     
+  refetch(); 
   };
 
   const handleDelete = async () => {
